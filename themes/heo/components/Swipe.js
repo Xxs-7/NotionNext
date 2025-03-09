@@ -27,7 +27,7 @@ export function Swipe({ items }) {
     <div className='h-full relative w-full overflow-hidden'>
       {items.map((item, index) => (
         <div
-          onClick={() => handleClick(item)}
+          // onClick={() => handleClick(item)}
           key={index}
           className={`whitespace-nowrap absolute top-0 bottom-0 w-full h-full flex justify-center items-center line-clamp-1 transform transition-transform duration-500 ${
             index === activeIndex
