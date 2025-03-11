@@ -2,18 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'PingFang override';
-  src: local('PingFang SC');
-  ascent-override: 92.3432%;
-  descent-override: 24.2222%;
-  line-gap-override: 0%;
-}
-
 html {
   overflow-x: hidden;
   transition: font-family 0.3s;
-
 }
 
 .wrapper {
