@@ -2,8 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'PingFang override';
+  src: local('PingFang SC');
+  ascent-override: 92.3432%;
+  descent-override: 24.2222%;
+  line-gap-override: 0%;
+}
+
 html {
   overflow-x: hidden;
+  transition: font-family 0.3s;
+
 }
 
 .wrapper {
@@ -64,10 +74,12 @@ nav {
   .sticky-nav-full {
     @apply max-w-full border-b border-opacity-50 border-gray-200 dark:border-gray-600 dark:border-opacity-50;
   }
+
   .header-name {
     display: block;
     transition: all 0.5s cubic-bezier(0.4, 0, 0, 1);
   }
+
   .sticky-nav-full .header-name {
     @apply dark:text-gray-300 text-gray-600;
   }
@@ -103,7 +115,8 @@ nav {
 .scroll-hidden {
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
-  scrollbar-width: none; /* firefox */
+  scrollbar-width: none;
+  /* firefox */
 }
 
 .scroll-hidden::-webkit-scrollbar {
@@ -125,7 +138,7 @@ nav {
   text-shadow: 0.1em 0.1em 0.2em black;
 }
 
-.notion-code-copy-button > svg {
+.notion-code-copy-button>svg {
   pointer-events: none;
 }
 
@@ -212,7 +225,7 @@ nav {
 /* .webmention-counts .counts > span {
   margin-right: .8rem;
 } */
-.webmention-counts .counts > span:not(:last-child):after {
+.webmention-counts .counts>span:not(:last-child):after {
   content: ' • ';
 }
 
@@ -267,8 +280,10 @@ a.avatar-wrapper {
 }
 
 .writing-vertical {
-  writing-mode: vertical-rl; /* 竖向排列从右向左 */
-  text-orientation: upright; /* 文字方向正常 */
+  writing-mode: vertical-rl;
+  /* 竖向排列从右向左 */
+  text-orientation: upright;
+  /* 文字方向正常 */
 }
 
 /* Chatbase 在移动端禁止遮挡 */

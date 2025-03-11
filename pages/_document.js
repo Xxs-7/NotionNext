@@ -16,6 +16,11 @@ class MyDocument extends Document {
           {BLOG.FONT_AWESOME && (
             <>
               <link
+                rel='preconnect'
+                href='https://chinese-fonts-cdn.deno.dev'
+                crossorigin
+              />
+              <link
                 rel='preload'
                 href={BLOG.FONT_AWESOME}
                 as='style'
