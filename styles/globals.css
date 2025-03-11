@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 定义经过校准的备用字体 */
+@font-face {
+  font-family: 'PingFang Override';
+  src: local('PingFang SC');
+  /* 调用系统自带字体 */
+
+  /* 关键度量值校准（基于霞鹜文楷实际测量） */
+  ascent-override: 92.3432%;
+  /* 上升部分占比 */
+  descent-override: 24.2222%;
+  /* 下降部分占比 */
+  line-gap-override: 0%;
+  /* 行间距清零 */
+}
+
 html {
   overflow-x: hidden;
   transition: font-family 0.3s;
