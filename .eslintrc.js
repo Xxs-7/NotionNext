@@ -7,7 +7,8 @@ module.exports = {
   extends: [
     'plugin:react/jsx-runtime',
     'plugin:react/recommended',
-    'plugin:@next/next/recommended',
+    // 'plugin:@next/next/recommended',
+    'next/core-web-vitals',
     'next',
     'prettier',
     'plugin:@typescript-eslint/recommended', // 添加 TypeScript 推荐规则
