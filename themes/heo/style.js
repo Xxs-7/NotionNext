@@ -16,7 +16,7 @@ const Style = () => {
         color: white;
       }
 
-      ::-webkit-scrollbar-thumb {
+      {/* ::-webkit-scrollbar-thumb {
         background: rgba(60, 60, 67, 0.4);
         border-radius: 8px;
         cursor: pointer;
@@ -25,7 +25,7 @@ const Style = () => {
       ::-webkit-scrollbar {
         width: 8px;
         height: 8px;
-      }
+      } */}
 
       #more {
         white-space: nowrap;
@@ -66,4 +66,3 @@ const Style = () => {
 }
 
 export { Style }
-

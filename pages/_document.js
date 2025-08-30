@@ -18,7 +18,7 @@ class MyDocument extends Document {
               <link
                 rel='preconnect'
                 href='https://chinese-fonts-cdn.deno.dev'
-                crossorigin
+                crossOrigin='anonymous'
               />
               <link
                 rel='preload'
