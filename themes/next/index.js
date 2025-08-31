@@ -259,11 +259,11 @@ const LayoutSearch = props => {
  * @param {*} props
  * @returns
  */
-const Layout404 = props => {
+const Layout404 = () => {
   const router = useRouter()
   useEffect(() => {
     // 延时3秒如果加载失败就返回首页
-    setTimeout(() => {
+    const timerId = setTimeout(() => {
       const article = isBrowser && document.getElementById('article-wrapper')
       if (!article) {
         router.push('/').then(() => {
@@ -271,6 +271,8 @@ const Layout404 = props => {
         })
       }
     }, 3000)
+
+    return () => clearTimeout(timerId)
   }, [])
 
   return (
@@ -326,19 +328,18 @@ const LayoutSlug = props => {
   useEffect(() => {
     // 404
     if (!post) {
-      setTimeout(
-        () => {
-          if (isBrowser) {
-            const article = document.querySelector('#article-wrapper #notion-article')
-            if (!article) {
-              router.push('/404').then(() => {
-                console.warn('找不到页面', router.asPath)
-              })
-            }
+      setTimeout(() => {
+        if (isBrowser) {
+          const article = document.querySelector(
+            '#article-wrapper #notion-article'
+          )
+          if (!article) {
+            router.push('/404').then(() => {
+              console.warn('找不到页面', router.asPath)
+            })
           }
-        },
-        waiting404
-      )
+        }
+      }, waiting404)
     }
   }, [post])
   return (

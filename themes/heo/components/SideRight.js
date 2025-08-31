@@ -27,10 +27,14 @@ const FaceBookPage = dynamic(
  * @returns
  */
 export default function SideRight(props) {
-  const { post, tagOptions, currentTag, rightAreaSlot } = props
+  const {
+    post,
+    // tagOptions, currentTag,
+    rightAreaSlot
+  } = props
 
   // 只摘取标签的前60个，防止右侧过长
-  const sortedTags = tagOptions?.slice(0, 60) || []
+  // const sortedTags = tagOptions?.slice(0, 60) || []
 
   return (
     <div id='sideRight' className='hidden xl:block w-72 space-y-4 h-full'>
@@ -52,7 +56,7 @@ export default function SideRight(props) {
         {/* 最新文章列表 */}
         <div
           className={
-            'border wow fadeInUp  hover:border-indigo-600  dark:hover:border-yellow-600 duration-200 dark:border-gray-700 dark:bg-[#1e1e1e] dark:text-white rounded-xl lg:p-6 p-4 hidden lg:block bg-white'
+            'border wow fadeInUp hover:border-primary dark:border-gray-700 dark:hover:border-primary bg-white dark:bg-[#1e1e1e] rounded-xl lg:p-6 p-4 hidden lg:block duration-200'
           }>
           <LatestPostsGroupMini {...props} />
         </div>
@@ -65,7 +69,7 @@ export default function SideRight(props) {
         {/* 标签和成绩 */}
         <Card
           className={
-            'bg-white dark:bg-[#1e1e1e] dark:text-white hover:border-indigo-600  dark:hover:border-yellow-600 duration-200'
+            'bg-white dark:bg-[#1e1e1e] hover:border-primary dark:hover:border-primary duration-200'
           }>
           {/* <TagGroups tags={sortedTags} currentTag={currentTag} /> */}
           {/* <hr className='mx-1 flex border-dashed relative my-4' /> */}

@@ -16,17 +16,6 @@ const Style = () => {
         color: white;
       }
 
-      {/* ::-webkit-scrollbar-thumb {
-        background: rgba(60, 60, 67, 0.4);
-        border-radius: 8px;
-        cursor: pointer;
-      }
-
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-      } */}
-
       #more {
         white-space: nowrap;
       }
@@ -36,14 +25,7 @@ const Style = () => {
         mask-image: linear-gradient(to top, transparent 5%, black 70%);
       }
 
-      .recent-top-post-group::-webkit-scrollbar {
-        display: none;
-      }
-
-      .scroll-hidden::-webkit-scrollbar {
-        display: none;
-      }
-
+     
       * {
         box-sizing: border-box;
       }

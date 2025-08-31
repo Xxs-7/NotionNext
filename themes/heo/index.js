@@ -32,7 +32,7 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import LatestPostsGroup from './components/LatestPostsGroup'
-import { NoticeBar } from './components/NoticeBar'
+// import { NoticeBar } from './components/NoticeBar'
 import PostAdjacent from './components/PostAdjacent'
 import PostCopyright from './components/PostCopyright'
 import PostHeader from './components/PostHeader'
@@ -65,7 +65,7 @@ const LayoutBase = props => {
       {/* 通知横幅 */}
       {router.route === '/' ? (
         <>
-          <NoticeBar />
+          {/* <NoticeBar /> */}
           <Hero {...props} />
         </>
       ) : null}
@@ -272,21 +272,18 @@ const LayoutSlug = props => {
   useEffect(() => {
     // 404
     if (!post) {
-      setTimeout(
-        () => {
-          if (isBrowser) {
-            const article = document.querySelector(
-              '#article-wrapper #notion-article'
-            )
-            if (!article) {
-              router.push('/404').then(() => {
-                console.warn('找不到页面', router.asPath)
-              })
-            }
+      setTimeout(() => {
+        if (isBrowser) {
+          const article = document.querySelector(
+            '#article-wrapper #notion-article'
+          )
+          if (!article) {
+            router.push('/404').then(() => {
+              console.warn('找不到页面', router.asPath)
+            })
           }
-        },
-        waiting404
-      )
+        }
+      }, waiting404)
     }
   }, [post])
   return (
@@ -307,7 +304,7 @@ const LayoutSlug = props => {
               <section
                 className='wow fadeInUp p-5 justify-center mx-auto'
                 data-wow-delay='.2s'>
-                <AISummary aiSummary={post.aiSummary}/>
+                <AISummary aiSummary={post.aiSummary} />
                 <WWAds orientation='horizontal' className='w-full' />
                 {post && <NotionPage post={post} />}
                 <WWAds orientation='horizontal' className='w-full' />

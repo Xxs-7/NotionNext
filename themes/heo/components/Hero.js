@@ -20,12 +20,12 @@ const Hero = props => {
   return (
     <div
       id='hero-wrapper'
-      className='recent-top-post-group w-full overflow-hidden select-none px-5 mb-4'>
+      className='max-w-[86rem]  mx-auto overflow-hidden select-none px-5 mb-4'>
       <div
-        id='hero'
-        style={{ zIndex: 1 }}
         className={`${HEO_HERO_REVERSE ? 'xl:flex-row-reverse' : ''}
-           recent-post-top rounded-[12px] 2xl:px-5 recent-top-post-group max-w-[86rem] overflow-x-scroll w-full mx-auto flex-row flex-nowrap flex relative`}>
+           rounded-[12px] 2xl:px-5 overflow-x-hidden w-full flex-row flex-nowrap flex relative`}
+        id='hero'
+           >
         {/* 左侧banner组 */}
         <BannerGroup {...props} />
 
@@ -48,7 +48,7 @@ function BannerGroup(props) {
     // 左侧英雄区
     <div
       id='bannerGroup'
-      className='flex flex-col justify-between flex-1 mr-2 max-w-[42rem]'>
+      className='flex flex-col justify-between flex-1'>
       {/* 动图 */}
       <Banner {...props} />
       {/* 导航分类 */}
@@ -80,11 +80,11 @@ function Banner(props) {
     <div
       id='banners'
       onClick={handleClickBanner}
-      className='hidden xl:flex xl:flex-col group h-full bg-white dark:bg-[#1e1e1e] rounded-xl border dark:border-gray-700 mb-3 relative overflow-hidden'>
+      className='hidden xl:flex xl:flex-col group h-full bg-white dark:bg-[#1e1e1e] rounded-xl border dark:border-gray-700 relative overflow-hidden'>
       <div
         id='banner-title'
-        className='z-10 flex flex-col absolute top-10 left-10'>
-        <div className='text-4xl font-bold mb-3  dark:text-white'>
+        className='flex flex-col absolute top-10 left-10'>
+        <div className='text-4xl font-bold mb-3'>
           {siteConfig('HEO_HERO_TITLE_1', null, CONFIG)}
           <br />
           {siteConfig('HEO_HERO_TITLE_2', null, CONFIG)}
@@ -102,7 +102,7 @@ function Banner(props) {
         id='banner-cover'
         style={{ backdropFilter: 'blur(15px)' }}
         className={
-          'z-20 rounded-xl overflow-hidden opacity-0 group-hover:opacity-100 duration-300 transition-all bg-[#4259efdd] dark:bg-[#dca846] dark:text-white cursor-pointer absolute w-full h-full top-0 flex justify-start items-center'
+          'rounded-xl overflow-hidden opacity-0 group-hover:opacity-100 duration-300 transition-all bg-primary cursor-pointer absolute w-full h-full top-0 flex justify-start items-center'
         }>
         <div className='ml-12 -translate-x-32 group-hover:translate-x-0 duration-300 transition-all ease-in'>
           <div className='text-7xl text-white font-extrabold'>{coverTitle}</div>
@@ -380,7 +380,7 @@ function TodayCard({ cRef, siteInfo }) {
           {/* 查看更多的按钮 */}
           <div
             onClick={handleClickShowMore}
-            className={`'${isCoverUp ? '' : 'hidden pointer-events-none'} z-10 group flex items-center px-3 h-10 justify-center  rounded-3xl
+            className={`'${isCoverUp ? '' : 'hidden pointer-events-none'}  group flex items-center px-3 h-10 justify-center  rounded-3xl
             glassmorphism transition-colors duration-100 `}>
             <PlusSmall
               className={

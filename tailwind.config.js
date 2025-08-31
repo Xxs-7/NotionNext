@@ -28,6 +28,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        primary: 'rgb(79 70 229)',//'bg-indigo-600',
         day: {
           DEFAULT: BLOG.BACKGROUND_LIGHT || '#ffffff'
         },
@@ -51,7 +52,6 @@ module.exports = {
           7: '#D1D5DB',
           8: '#E5E7EB'
         },
-        primary: '#3758F9',
         'blue-dark': '#1B44C8',
         secondary: '#13C296',
         'body-color': '#637381',

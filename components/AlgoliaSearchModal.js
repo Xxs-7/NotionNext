@@ -94,7 +94,7 @@ export default function AlgoliaSearchModal({ cRef }) {
   )
   useHotkeys(
     'enter',
-    e => {
+    () => {
       if (isInputFocused && searchResults.length > 0) {
         onJumpSearchResult(index)
       }
@@ -138,6 +138,26 @@ export default function AlgoliaSearchModal({ cRef }) {
     }
   }, [isModalOpen])
 
+  const scrollTop = useRef(0)
+  useEffect(() => {
+    if (isModalOpen) {
+      // 保存当前的滚动位置
+      const scrollY = window.scrollY
+      scrollTop.current = scrollY
+      document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollY}px`
+      document.body.style.left = '0'
+      document.body.style.right = '0'
+      document.querySelector('#search-wrapper').style.top = scrollY + 'px'
+    } else {
+      // 恢复滚动位置
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.left = ''
+      document.body.style.right = ''
+      window.scrollTo(0, scrollTop.current)
+    }
+  }, [isModalOpen])
   /**
    * 对外暴露方法
    **/
@@ -246,7 +266,7 @@ export default function AlgoliaSearchModal({ cRef }) {
       id='search-wrapper'
       className={`${
         isModalOpen ? 'opacity-100' : 'invisible opacity-0 pointer-events-none'
-      } z-30 fixed h-screen w-screen left-0 top-0 sm:mt-12 flex items-start justify-center mt-0`}>
+      } z-30 fixed h-screen w-screen left-0 top-0 sm:pt-20 flex items-start justify-center mt-0 backdrop-blur-3xl`}>
       {/* 模态框 */}
       <div
         className={`${
@@ -349,7 +369,7 @@ export default function AlgoliaSearchModal({ cRef }) {
  */
 function TagGroups() {
   const { tagOptions } = useGlobal()
-  //  获取tagOptions数组前十个
+  // 获取tagOptions数组前十个
   const firstTenTags = tagOptions?.slice(0, 10)
 
   return (

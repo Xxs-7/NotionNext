@@ -1,4 +1,4 @@
-import BLOG, { LAYOUT_MAPPINGS } from '@/blog.config'
+import BLOG from '@/blog.config'
 import * as ThemeComponents from '@theme-components'
 import getConfig from 'next/config'
 import dynamic from 'next/dynamic'
@@ -79,7 +79,7 @@ export const getBaseLayoutByTheme = theme => {
  */
 export const DynamicLayout = props => {
   const { theme, layoutName } = props
-  const SelectedLayout = getLayoutByTheme({ layoutName, theme })
+  const SelectedLayout = useLayoutByTheme({ layoutName, theme })
   return <SelectedLayout {...props} />
 }
 
@@ -89,7 +89,7 @@ export const DynamicLayout = props => {
  * @param {*} theme
  * @returns
  */
-export const getLayoutByTheme = ({ layoutName, theme }) => {
+export const useLayoutByTheme = ({ layoutName, theme }) => {
   // const layoutName = getLayoutNameByPath(router.pathname, router.asPath)
   const LayoutComponents =
     ThemeComponents[layoutName] || ThemeComponents.LayoutSlug
@@ -121,11 +121,11 @@ export const getLayoutByTheme = ({ layoutName, theme }) => {
  * @param {*} path
  * @returns
  */
-const getLayoutNameByPath = path => {
-  const layoutName = LAYOUT_MAPPINGS[path] || 'LayoutSlug'
-  //   console.log('path-layout',path,layoutName)
-  return layoutName
-}
+// const getLayoutNameByPath = path => {
+//   const layoutName = LAYOUT_MAPPINGS[path] || 'LayoutSlug'
+//   //   console.log('path-layout',path,layoutName)
+//   return layoutName
+// }
 
 /**
  * 切换主题时的特殊处理

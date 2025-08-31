@@ -84,7 +84,11 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true
   },
-  output: process.env.EXPORT ? 'export' : process.env.NEXT_BUILD_STANDALONE === 'true' ? 'standalone' : undefined,
+  output: process.env.EXPORT
+    ? 'export'
+    : process.env.NEXT_BUILD_STANDALONE === 'true'
+      ? 'standalone'
+      : undefined,
   staticPageGenerationTimeout: 120,
   // 多语言， 在export时禁用
   i18n: process.env.EXPORT
@@ -192,7 +196,7 @@ const nextConfig = {
           }
         ]
       },
-  webpack: (config, { dev, isServer }) => {
+  webpack: (config, { isServer }) => {
     // 动态主题：添加 resolve.alias 配置，将动态路径映射到实际路径
     config.resolve.alias['@'] = path.resolve(__dirname)
 
@@ -213,9 +217,9 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true
   },
-  exportPathMap: async function (
-    defaultPathMap,
-    { dev, dir, outDir, distDir, buildId }
+  exportPathMap: function (
+    defaultPathMap
+    // { dev, dir, outDir, distDir, buildId }
   ) {
     // export 静态导出时 忽略/pages/sitemap.xml.js ， 否则和getServerSideProps这个动态文件冲突
     const pages = { ...defaultPathMap }
